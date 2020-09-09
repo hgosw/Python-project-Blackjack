@@ -1,5 +1,5 @@
 # Python-project-Blackjack
-
+A simplified version of Blackjack to showcase my knowledge with python classes
 
 Note: Python must be per installed.
 
