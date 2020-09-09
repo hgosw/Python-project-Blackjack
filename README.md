@@ -1,6 +1,6 @@
 # Python-project-Blackjack
 
-note: Python must be per installed.
+Note: Python must be per installed.
 
 Windows;
 
