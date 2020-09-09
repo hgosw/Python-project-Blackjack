@@ -19,6 +19,6 @@ Mac:
 
 2) Open the Applications folder, go into the Utilities folder, and open the Terminal program.
 
-3) Type in cd and paste the the file location and press enter
+3) Type in cd and paste the file location and press enter
 
 4) Enter "python Blackjack.py" press enter.
