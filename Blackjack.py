@@ -1,5 +1,6 @@
 import random
 
+
 suits =('Hearts', 'Diamonds', 'Spades', 'Clubs')
 ranks = ('Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace')
 values = {'Two':2, 'Three':3, 'Four':4, 'Five':5, 'Six':6, 'Seven':7, 'Eight':8, 'Nine':9, 'Ten':10, 'Jack':10,
@@ -14,7 +15,7 @@ class Card:
         self.suits = suits 
         self.rank = rank
         
-    
+
     def __str__(self):
         return self.rank +' of '+ self.suits
 
@@ -24,7 +25,7 @@ class Card:
 
 class Deck:
     def __init__(self):
-        self.deck = []  # start with an empty list
+        self.deck = []  
         for suit in suits:
             for rank in ranks:
                 created_card= Card(suit,rank)
@@ -47,9 +48,9 @@ class Deck:
 
 class Hand:
     def __init__(self):
-        self.cards = []  # start with an empty list as we did in the Deck class
-        self.value = 0   # start with zero value
-        self.aces = 0    # add an attribute to keep track of aces
+        self.cards = []  
+        self.value = 0   
+        self.aces = 0    
     
     def add_card(self,card):
         self.cards.append(card)
@@ -74,7 +75,7 @@ class Hand:
 class Chips:
     
     def __init__(self):
-        self.total = 100  # This can be set to a default value or supplied by a user input
+        self.total = 100 
         self.bet = 0
     def win_bet(self):
         self.total += self.bet
@@ -101,7 +102,7 @@ def hit(deck,hand):
 
 
 def hit_or_stand(deck,hand):
-    global playing # to control an upcoming while loop
+    global playing 
     while True:
         
         z = input("Enter Hit or Stand 'h' or 's': ")
@@ -162,47 +163,47 @@ def push(player,dealer):
 
 
 while True:
-    # Print an opening statement
+    
     clear_output()
     print("Welcome to black jack")
     playing = True
     
-    # Create & shuffle the deck, deal two cards to each player
+   
     d = Deck()
     d.shuffle()
-    ply = Hand()         # player obj 
+    ply = Hand()        
     ply.add_card(d.deal())
     ply.add_card(d.deal())
     
-    deal = Hand()        # Dealer obj
+    deal = Hand()        
     deal.add_card(d.deal())
     deal.add_card(d.deal())
         
-    # Set up the Player's chips
+    
     ply_chip = Chips()
     deal_chip = Chips()
     
-    # Prompt the Player for their bet
+    
     take_bet(ply_chip)
-    # Show cards (but keep one dealer card hidden)
+    
     show_some(ply,deal)
     
-    while playing:  # recall this variable from our hit_or_stand function
+    while playing:
         
-        # Prompt for Player to Hit or Stand
+        
         hit_or_stand(d,ply)
         clear_output()
         
-        # Show cards (but keep one dealer card hidden)
+        
         show_some(ply,deal)
         
-        # If player's hand exceeds 21, run player_busts() and break out of loop
+        
         if ply.value > 21:
             clear_output()
             player_busts(ply,deal,ply_chip)
             break
 
-    # If Player hasn't busted, play Dealer's hand until Dealer reaches 17
+    
     if ply.value <22:
         clear_output()
         while deal.value <=17:
@@ -214,9 +215,9 @@ while True:
                 
                 
     
-        # Show all cards
+        
     show_all(ply,deal)
-        # Run different winning scenarios
+    
     if ply.value == 21:
         print('\n')
         player_wins(ply,deal,ply_chip)
@@ -235,15 +236,16 @@ while True:
         print('\n')
         push(ply,deal)
     
-    # Inform Player of their chips total 
+    
     print(f"\nPlayers chips {ply_chip.total}")
-    # Ask to play again
+    
     g = input("Would you like to play again 'y'or 'n'")
     if g == 'y':
           continue 
     else:
           break
             
+
 
 
 
