@@ -2,7 +2,7 @@
 
 Note: Python must be per installed.
 
-Windows;
+Windows:
 
 1) Right-click the Python file > click properties > copy  "Location" value.
 
@@ -13,7 +13,7 @@ Windows;
 4) Enter "python Blackjack.py" press enter.
 
 
-Mac;
+Mac:
 
 1) Right-click the Python file > click Get info > copy  "Where" value.
 
